@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            Webpack setup
+        </div>
+        <div class="nav">
+            <a href="./">Home</a>
+            <a href="./about.html">About</a>
+        </div>
+    </header>
+    <div class="body">
+        <!-- About page -->
+        <h1>About</h1>
+        <!-- about page ends -->
+        <p>
+            File structure
+        </p>
+        <p class="image"></p>
+
+        <h3>webpack.config.js</h3>
+        <code>
+<pre>
+    const HtmlWebpackPlugin = require("html-webpack-plugin");
+    const path = require("path");
+    
+    module.exports = {
+        entry: {
+            index: './src/index.js',
+            about: './src/about.js',
+        },  
+        output: {
+            path: path.resolve(__dirname, "build")
+        },
+        module: {
+            rules: [
+                {
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader","sass-loader"]
+                },
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: ["babel-loader"]
+                }
+            ]
+        },
+        optimization: {
+            splitChunks: { chunks: "all" }
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: './src/index.html',
+                inject: true,
+                chunks: ['index'],
+                filename: 'index.html'
+            }),
+            new HtmlWebpackPlugin({
+                template: './src/about.html',
+                inject: true,
+                chunks: ['about'],
+                filename: 'about.html'
+            })
+        ]
+    };
+</pre>            
+        </code>
+   <p>Package.json</p>
+<code>
+<pre>
+    {
+        "name": "babel-webpack-projectsetup",
+        "version": "1.0.0",
+        "description": "",
+        "main": "index.js",
+        "scripts": {
+          "dev": "webpack --mode development",
+          "build": "webpack --mode production",
+          "start": "webpack-dev-server --mode development --open",
+          "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "keywords": [],
+        "author": "Rajeev Ranjan",
+        "license": "ISC",
+        "devDependencies": {
+          "@babel/core": "^7.10.5",
+          "@babel/preset-env": "^7.10.4",
+          "babel-loader": "^8.1.0",
+          "css-loader": "^3.6.0",
+          "html-webpack-plugin": "^4.3.0",
+          "sass": "^1.26.10",
+          "sass-loader": "^9.0.2",
+          "style-loader": "^1.2.1",
+          "webpack": "^4.43.0",
+          "webpack-cli": "^3.3.12",
+          "webpack-dev-server": "^3.11.0"
+        },
+        "dependencies": {
+          "moment": "^2.27.0"
+        }
+      }
+      
+</pre>    
+</code>   
+<p>babel.config.json</p>
+<code>
+<pre>
+    {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      }    
+</pre>    
+</code>
+
+        <!-- <p class="strong">Create a new folder and move into it to initialize an NPM project:</p>
+        <code>
+            $ mkdir webpack-project<br />
+            $ cd webpack-project <br />
+            $ npm init -y
+        </code>
+
+        <p class="strong">Install webpack, webpack-cli, and the webpack-dev-server</p>
+        <code>
+            $ npm i webpack webpack-cli webpack-dev-server --save-dev
+        </code>
+
+        <p>To run webpack easily from an NPM script, open up <b>package.json</b> and configure a "dev" script:</p>
+        <code>
+<pre style="margin: 0; padding: 0;">
+    "scripts": {
+        "dev": "webpack --mode development"
+    },
+</pre>
+        </code> -->
+    </div>
+    <footer>
+        &copy; 2020, rajeevr.com
+    </footer>
+</body>
+</html>

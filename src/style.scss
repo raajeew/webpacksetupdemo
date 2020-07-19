@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+$font: "Karla", sans-serif;
+$primary-color: #414141;
+$link-color: #206ccf;
+$main-nav-color: #ffffff;
+
+body {
+  font-family: $font;
+  color: $primary-color;
+  margin: 0;
+  padding: 0 0 50px;
+}
+a {
+    color: $link-color;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding:0 20px;
+    box-sizing: border-box;
+    height: 60px;
+    background-color: #414141;
+    color: #ffffff;
+    align-items: center;
+}
+header .logo{
+    width: 200px;
+    font-size: 20px;
+    font-weight: bold;
+}
+header .nav{
+    width: calc(100% - 120px);
+}
+header .nav a{
+    color: $main-nav-color;
+    padding: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header .nav a:hover{
+    text-decoration: underline;
+}
+
+.body{
+    box-sizing: border-box;
+    padding: 20px;
+    min-height: 500px;
+}
+code {
+    box-sizing: border-box;
+    display: block;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+    line-height: 2;
+    border-radius: 6px;
+    font-size: 14px;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background-color: #efefef;
+    width: 100%;
+}
+
+.image{
+    background: url('./file-structure.png') no-repeat;
+    background-size: 200px;
+    height: 300px;
+}
