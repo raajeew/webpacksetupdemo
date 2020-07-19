@@ -1,1 +1,1 @@
-# Demo App - Webpack and Babel Setup with ES6
+# Demo App - Webpack and Babel Setup for ES6 app
